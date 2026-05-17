@@ -1,0 +1,1 @@
+This project is based on similar work of postman that more then it not only reposne -req but a mixed version of ai suggested where it  teach about each fetchs recommandations, and many more so Stay Tuned for Updates TechStack Used #nextjs15 #tailwindcss #shadcn #aisdk
