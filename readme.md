@@ -559,7 +559,7 @@ So making type-safe env handling is actually worth it.
  - > add GitHub Server & Client Secerts
   - >create Google/Github OAuth app
   - > Add .env Files 
-  - > add api End Point
+- > add api End Point (@/app/auth/[...all]/route.js)
 - > add Server & Client Auth Config
 - > better Auth Integration  (😥tough part )
 - > add Users Actions in Authentications
@@ -613,6 +613,74 @@ So making type-safe env handling is actually worth it.
   BETTER_AUTH_SECRET=your_random_secret 
   ```
   ---
+# Module 3 — Authentication API Endpoint
+
+Better Auth requires an API route that handles all authentication-related requests.
+
+## Endpoint
+
+```txt
+/api/auth/[...all]
+```
+
+## Route Handler
+
+```ts
+import { auth } from "@/lib/auth";
+import { toNextJsHandler } from "better-auth/next-js";
+
+export const { GET, POST } = toNextJsHandler(auth);
+```
+
+## Responsibilities
+
+This endpoint automatically handles:
+
+* Sign In
+* Sign Out
+* Session Validation
+* OAuth Callbacks
+* Account Linking
+* Authentication Requests
+
+## OAuth Callback Examples
+
+Google:
+
+```txt
+/api/auth/callback/google
+```
+
+GitHub:
+
+```txt
+/api/auth/callback/github
+```
+
+## Internal Flow
+
+```txt
+Client
+    ↓
+/api/auth/*
+    ↓
+Better Auth
+    ↓
+Prisma Adapter
+    ↓
+PostgreSQL
+```
+
+### Why It Is Required
+
+Without this endpoint:
+
+* OAuth redirects fail
+* Session creation fails
+* Login requests fail
+* Better Auth cannot process authentication requests
+
+This endpoint acts as the central gateway for all authentication operations in the application.
 
 # add Server & Client Config 
 
@@ -699,7 +767,7 @@ export const prisma = globalForPrisma.prisma ||
 1. Generate Better Auth Schema
 > npx @better-auth/cli generate
 This updated:prisma/schema.prisma and generated auth models (User, Session, Account, Verification, etc.).
-
+2. Up Your Docker or Postgrsql - > docker-compose up -d
 # Professional Production Workflow
 
 Recommended production flow:
