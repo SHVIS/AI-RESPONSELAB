@@ -883,7 +883,25 @@ if the user is not authenticated or an error occurs.
 ```txt
 Reusable + Secure + Centralized User Fetching
 ```
+________________________________________________________
+---
+# Objective 4 — Adding Headers (UI)
+- > make a Navbar /oop use For see
+- > add project Logo 
+- > add Search-bar Compoent with a Cmd Panel and ShortCut ctrl+f
+- > add Invite_member Button To Implementation Remin
+- > add Personal WorkSpace Button With DropDown(remain To Implemt)
 
+We Directly Goto Shadcn Site and Use Code as Already Install All Compoents so no needs to Install anything just use
+  Its a `Header` of `WorkSpace` That We Implement in Next Commit
+  - Search-bar -> Use Cmd Panel  & kbd key event to Use it iwith ctrl+f cmd via keyboard
+  - Invite-member -> DropDown later Implement
+  - Personal WorkSpace -> User Can Select Across diff Workspaces
+  - Navber -> contains All these Compoents with A Hint ToolTip We can easily get from Site. with One More `SideBar` in Later Commit for Mobile Users
+
+Including Added Compoents from shadcn in navbar such as searchbar(modal based), invite-memberbutton+hint,workspace button+hint,app logo header Ui ,loding UI and lucid icons finally in search and personal workspace using dilogcmdpanels & dropselectbox and Many more Implementation in Next Commit
+Can See In Last Commit
+___________________________________________________________
 
 ## Mistake 1 — Docker Manual Setup
 
